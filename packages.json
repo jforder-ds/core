@@ -10,6 +10,6 @@
   },
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/jforder-ds/core.git"
+    "url" : "git+https://github.com/jforder-ds/core.git"
   }
 }
