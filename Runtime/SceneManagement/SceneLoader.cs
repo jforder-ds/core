@@ -13,9 +13,11 @@ namespace FourDoor.GameLogic
 
         private float _loadProgress;
         private const float ProgressComplete = 0.9f;
+        private Scene _lastSceneLoaded;
         
         public float LoadingProgress => _loadProgress;
-
+        public Scene LastSceneLoaded => _lastSceneLoaded;
+        
         private static string _booterSceneName = "_Booter";
         
         /// <summary>
@@ -52,14 +54,10 @@ namespace FourDoor.GameLogic
             await UpdateLoadingProgress(scene);
             
             scene.allowSceneActivation = true;
-
-            //await Task.Yield();
         }
 
         public async Task UnLoadScene(string sceneName)
         {
-            Debug.Log(sceneName);
-            
             bool checkSceneIsLoaded = _loadedScenes.Any(scene => scene.name.Equals(sceneName));
             
             if(!checkSceneIsLoaded)
@@ -76,6 +74,7 @@ namespace FourDoor.GameLogic
         private void OnSceneLoaded(Scene loadedScene, LoadSceneMode loadedMode)
         {
             _loadedScenes.Add(loadedScene);
+            _lastSceneLoaded = loadedScene;
         }
         
         private void OnSceneUnloaded(Scene unloadedScene)
