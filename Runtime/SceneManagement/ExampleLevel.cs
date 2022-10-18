@@ -1,44 +1,35 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEditor;
+﻿using FourDoor.GameLogic;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace FourDoor.GameLogic
+namespace FourDoor.Level
 {
     public class ExampleLevel : Level
     {
-        [Header("Scene Handling")]
-        [SerializeField] private List<SceneAsset> loadScenes = new List<SceneAsset>();
-        [SerializeField] private List<SceneAsset> unloadScenes = new List<SceneAsset>();
+        [Header("Exit Level")]
+        [SerializeField] private Button getStartedButton;
+        [SerializeField] private TravelToScene travelToScene;
+
+        private void OnEnable()
+        {
+            getStartedButton.onClick.AddListener(OnClickGetStartedButton);
+        }
+
+        private void OnDisable()
+        {
+            getStartedButton.onClick.RemoveListener(OnClickGetStartedButton);
+        }
+
+        private void OnClickGetStartedButton()
+        {
+            travelToScene.Travel();
+        }
 
         public override async void Init() {}
 
         public override async void Exit()
         {
-            await LoadExitScenes();
-            await UnloadExitScenes();
-        }
-        
-        private async Task LoadExitScenes()
-        {
-            if (loadScenes.Count > 0)
-            {
-                foreach (var scene in loadScenes)
-                {
-                    await SceneLoader.Instance.LoadSceneAdditive(scene.name);
-                }
-            }
-        }
-
-        private async Task UnloadExitScenes()
-        {
-            if (unloadScenes.Count > 0)
-            {
-                foreach (var scene in unloadScenes)
-                {
-                    await SceneLoader.Instance.UnLoadScene(scene.name);
-                }
-            }
+           
         }
     }
 }

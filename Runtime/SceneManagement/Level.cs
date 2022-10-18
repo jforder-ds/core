@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FourDoor.GameLogic
+namespace FourDoor.Level
 {
     public abstract class Level : MonoBehaviour
     {
