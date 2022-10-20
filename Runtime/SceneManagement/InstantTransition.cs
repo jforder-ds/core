@@ -18,6 +18,7 @@ namespace FourDoor.GameLogic
             await SceneLoader.Instance.UnLoadScene(gameObject.scene.name);
         }
         
+        
         public override async Task Begin() => await Task.Yield();
         public override async Task End() => await Task.Yield();
     }
