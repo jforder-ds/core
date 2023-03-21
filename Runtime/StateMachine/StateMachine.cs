@@ -15,11 +15,11 @@ namespace FourDoor
             _currentState.Enter();
         }
 
-        public void Update()
+        public void Run()
         {
             if (_currentState != null)
             {
-                _currentState.Update();
+                _currentState.Run();
             }
         }
     }

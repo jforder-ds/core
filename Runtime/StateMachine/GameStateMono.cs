@@ -1,10 +1,12 @@
+using UnityEngine;
+
 namespace FourDoor
 {
-    public class GameState : IState
+    public class GameStateMono : MonoBehaviour, IState
     {
         public void Enter()
         {
-            
+
         }
 
         public void Run()
@@ -14,7 +16,7 @@ namespace FourDoor
 
         public void Exit()
         {
-            
+
         }
     }
 }
