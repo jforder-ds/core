@@ -1,20 +1,13 @@
+using UnityEngine;
+
 namespace FourDoor
 {
-    public class GameState : IState
+    public class GameState : MonoBehaviour, IState
     {
-        public void Enter()
-        {
-            
-        }
+        public virtual void Enter() {}
 
-        public void Run()
-        {
-            
-        }
+        public virtual void Run() {}
 
-        public void Exit()
-        {
-            
-        }
+        public virtual void Exit() {}
     }
 }

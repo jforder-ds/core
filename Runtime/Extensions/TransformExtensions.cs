@@ -97,5 +97,10 @@ namespace UnityExtensions
         {
             transform.position = new Vector3( transform.position.x, transform.position.y, z );
         }
+        
+        public static void SetPosition(this Transform transform, Vector3 position)
+        {
+            transform.position = position;
+        }
     }
 }
